@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Inicia sesión o regístrate</title>
+    <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico">
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 0 20px;
+        }
+        .login-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #1877f2;
+            color: white;
+            padding: 14px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #165ecc;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .footer a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 10px;
+                box-shadow: none;
+            }
+            input[type="text"], input[type="password"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        <form onsubmit="return simulatePhishing()">
+            <input type="text" id="username" name="username" placeholder="Correo electrónico o teléfono" required>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <input type="submit" value="Iniciar sesión">
+        </form>
+        <div class="footer">
+            <p><a href="#">¿Has olvidado tu cuenta?</a> · <a href="#">Registrarte en Facebook</a></p>
+        </div>
+    </div>
+
+    <script>
+        function simulatePhishing() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Simulando que los datos se envían a un atacante
+            alert(`Phishing completado. Tus datos:\nUsuario: ${username}\nContraseña: ${password}`);
+
+            // Evitar que el formulario se envíe de verdad
+            return false;
+        }
+    </script>
+</body>
+</html>
